@@ -1,0 +1,11 @@
+{
+  "name": "brutality_ui",
+  "main": "./main.prod.js",
+  "scripts": {
+    "postinstall": "npm rebuild --runtime=electron --target=1.6.6 --disturl=https://atom.io/download/atom-shell --build-from-source"
+  },
+  "dependencies": {
+    "react-toastify": "^1.7.0",
+    "react-window-titlebar": "^1.0.3"
+  }
+}

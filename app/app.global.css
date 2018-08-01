@@ -1,0 +1,142 @@
+@import '~font-awesome/css/font-awesome.css';
+@import '~semantic-ui-css/semantic.min.css';
+@import './toast.css';
+@import './table.css';
+
+#right-bar,
+.left-menu {
+  padding-top: 4em !important;
+  margin-top: -2em !important;
+  padding-bottom: 2em !important;
+  overflow-y: auto !important;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(52, 55, 58);
+  overflow: hidden;
+  /* Make sure this matches the native window background color that you pass to
+   * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
+  background: rgb(52, 55, 58);
+  /* Smoother startup */
+  animation: fadein 1s;
+}
+
+main {
+  flex: 1 0 auto;
+}
+a {
+  color: rgba(255, 255, 255, 0.5);
+}
+a:hover {
+  color: white !important;
+  cursor: pointer;
+}
+input {
+  background-color: rgb(107, 113, 120) !important;
+}
+select {
+  background-color: rgb(107, 113, 120) !important;
+}
+::-webkit-scrollbar {
+  width: 9px !important;
+  height: 7px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1c1d !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(152, 155, 158) !important;
+  border: 1px solid #1b1c1d !important;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgb(152, 155, 158) !important;
+  color: rgb(152, 155, 158) !important;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2em;
+  background-color: rgb(27, 28, 29);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.footerLeft {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  color: white;
+  height: 100%;
+  width: 50%;
+  padding-left: 1em;
+  padding-top: 0.19em;
+  user-select: none;
+}
