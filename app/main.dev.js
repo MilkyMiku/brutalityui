@@ -147,7 +147,4 @@ app.on('ready', async () => {
       message: 'error message: ' + err
     });
   });
-  // End update
-  // const menuBuilder = new MenuBuilder(mainWindow);
-  // menuBuilder.buildMenu();
 });
