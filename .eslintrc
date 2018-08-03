@@ -10,7 +10,7 @@
     "node": true
   },
   "rules": {
-    "linebreak-style:": ["warning", "windows"],
+    "linebreak-style:": [1, "windows"],
     "space-before-function-paren": ["error", "never"],
     "arrow-parens": ["off"],
     "consistent-return": "off",

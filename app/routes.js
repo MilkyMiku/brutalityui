@@ -3,9 +3,7 @@ import { Switch, Route, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import App from './containers/App';
-import Header from './components/Header';
-import LeftBar from './containers/LeftBarContainer';
-import RightBar from './containers/RightBarContainer';
+
 import Home from './components/Home';
 
 import { loginSuccess, loginError } from './actions';
@@ -14,11 +12,9 @@ class routes extends Component {
   render() {
     return (
       <App>
-        <div style={{ overflowY: 'auto', height: '100%' }}>
-          <Switch>
-            <Route path="/" component={Home} exact />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/" component={Home} exact />
+        </Switch>
       </App>
     );
   }

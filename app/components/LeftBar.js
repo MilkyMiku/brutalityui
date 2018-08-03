@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 class LeftBar extends Component {
   constructor(props) {
     super(props);
     this.state = { searchString: '' };
   }
 
+  toastTest = () => {
+    toast('Toasty!');
+    console.log('toasty!');
+  };
+
   render() {
     return (
       <Menu className="left-menu" inverted floated vertical fixed="left">
         <Menu.Item>
-          <Menu.Header>Profile</Menu.Header>
+          <Menu.Header>Menu</Menu.Header>
           <Menu.Menu>
             <Menu.Item
               as={NavLink}
@@ -41,6 +46,8 @@ class LeftBar extends Component {
             >
               <Icon name="setting" /> Settings
             </Menu.Item>
+
+            <Menu.Item onClick={this.toastTest}>Toast Test</Menu.Item>
           </Menu.Menu>
         </Menu.Item>
       </Menu>
