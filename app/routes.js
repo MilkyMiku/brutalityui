@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router';
 import { connect } from 'react-redux';
-
+import WhatNotToDoList from './components/WhatNotToDoList';
 import App from './containers/App';
 
 import Home from './components/Home';
@@ -14,6 +14,7 @@ class routes extends Component {
       <App>
         <Switch>
           <Route path="/" component={Home} exact />
+          <Route path="/WhatNotToDoList" component={WhatNotToDoList} exact />
         </Switch>
       </App>
     );

@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: rgb(52, 55, 58);
+  color: #ccc;
   overflow: hidden;
   /* Make sure this matches the native window background color that you pass to
    * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
@@ -130,4 +131,71 @@ select {
 
 .zoomOut {
   animation-name: zoomOut;
+}
+
+.todoContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.todoItem {
+  display: flex;
+  width: 97%;
+  margin: 1%;
+  border: solid 2px #777;
+}
+
+.todoStringContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex: 1;
+  background: rgb(48, 51, 58);
+}
+
+.todoTitle {
+  font-size: 20px;
+  min-height: 40%;
+  border-bottom: dotted 1px #ccc;
+}
+
+.todoDescription {
+  padding: 20px;
+  min-height: 60%;
+}
+
+.todoOptionContainer {
+  min-width: 5%;
+}
+
+.todoEdit {
+  display: block;
+  padding: 20%;
+  height: 50%;
+  border-left: solid 2px #777;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.todoDelete {
+  display: block;
+  padding: 20%;
+  height: 50%;
+  border: solid 2px #777;
+  border-bottom: none;
+  border-right: none;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.todoOption:hover {
+  color: white;
+  cursor: pointer;
 }

@@ -28,7 +28,15 @@ class LeftBar extends Component {
             >
               Home
             </Menu.Item>
-
+            <Menu.Item
+              as={NavLink}
+              to="/WhatNotToDoList"
+              activeClassName="active"
+              exact
+              key="WhatNotToDoList"
+            >
+              WhatNotToDoList
+            </Menu.Item>
             <Menu.Item
               onClick={() => {
                 console.log('Add Login Logic!');
@@ -36,7 +44,6 @@ class LeftBar extends Component {
             >
               <Icon name="sign in" />Login
             </Menu.Item>
-
             <Menu.Item
               as={NavLink}
               to="/settings"
@@ -46,7 +53,6 @@ class LeftBar extends Component {
             >
               <Icon name="setting" /> Settings
             </Menu.Item>
-
             <Menu.Item onClick={this.toastTest}>Toast Test</Menu.Item>
           </Menu.Menu>
         </Menu.Item>

@@ -22,10 +22,9 @@ export default class App extends Component {
       paddingTop: '31px',
       paddingLeft: '210px',
       paddingBottom: '2em',
-      height: '100%',
-      width: '100%'
+      height: '100vh',
+      width: '100vw'
     };
-    console.log({ Zoom });
     return (
       <div>
         <Header />

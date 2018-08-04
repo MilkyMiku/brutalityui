@@ -10,6 +10,7 @@
     "node": true
   },
   "rules": {
+    "linebreak-style": "off",
     "space-before-function-paren": ["error", "never"],
     "arrow-parens": ["off"],
     "consistent-return": "off",
