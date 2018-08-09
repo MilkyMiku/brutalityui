@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { ToastContainer, cssTransition } from 'react-toastify';
 import Header from '../components/Header';
-import RightBar from './RightBarContainer';
 import LeftBar from './LeftBarContainer';
-import Footer from './FooterContainer';
 
 const Zoom = cssTransition({
   enter: 'zoomIn',
@@ -18,20 +16,11 @@ export default class App extends Component {
   };
 
   render() {
-    const wrapper = {
-      paddingTop: '31px',
-      paddingLeft: '210px',
-      paddingBottom: '2em',
-      height: '100vh',
-      width: '100vw'
-    };
     return (
       <div>
         <Header />
         <LeftBar />
-        <RightBar />
-        <div style={wrapper}>{this.props.children}</div>
-        <Footer />
+        <div className="appWrapper">{this.props.children}</div>
         <ToastContainer transition={Zoom} position="bottom-right" />
       </div>
     );

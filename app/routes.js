@@ -20,12 +20,6 @@ class routes extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  const { isVisable } = state.rightbar;
-  return {
-    isVisable
-  };
-};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -34,10 +28,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Routes = withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(routes)
-);
+const Routes = withRouter(connect(mapDispatchToProps)(routes));
 export default Routes;

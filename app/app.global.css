@@ -2,43 +2,76 @@
 @import '~semantic-ui-css/semantic.min.css';
 @import './toast.css';
 
-#right-bar,
-.left-menu {
-  padding-top: 4em !important;
-  margin-top: -2em !important;
-  padding-bottom: 2em !important;
-  overflow-y: auto !important;
-}
-
-body {
+body,
+html {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: rgb(52, 55, 58);
+  background: linear-gradient(to right, #252439 17%, #2c5364 100%);
   color: #ccc;
   overflow: hidden;
-  /* Make sure this matches the native window background color that you pass to
-   * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
-  background: rgb(52, 55, 58);
+  font-family: 'Segoe UI';
+  background: linear-gradient(to right, #252439 17%, #2c5364 100%);
+
   /* Smoother startup */
-  animation: fadein 1s;
+  animation: fadein 2s;
 }
 
 main {
   flex: 1 0 auto;
 }
+
 a {
   color: rgba(255, 255, 255, 0.5);
+  transition: all 0.2s;
 }
+p {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+}
+
 a:hover {
   color: white !important;
   cursor: pointer;
 }
-input {
-  background-color: rgb(107, 113, 120) !important;
+
+.todoTitleInput,
+.todoDescriptionInput {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  background: #2c5364;
+  border: solid 1px #3f83a0;
+  width: 80%;
+  color: white;
+  text-align: center;
+  transition: all 1s;
+  transition: all 0.3s, border-radius 0.2s;
 }
-select {
-  background-color: rgb(107, 113, 120) !important;
+
+.todoTitleInput:focus,
+.todoDescriptionInput:focus {
+  border: solid 1px #61c4ee;
+  transform: scale(1.1);
+}
+
+.todoTitleInput:hover {
+  border: solid 1px #61c4ee;
+  border-radius: 0px 20px 0px 20px;
+}
+
+.todoDescriptionInput:hover {
+  border: solid 1px #61c4ee;
+  border-radius: 20px 0px 20px 0px;
+}
+
+*:focus {
+  outline: initial;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ccc;
+  opacity: 0.7; /* Firefox */
 }
 ::-webkit-scrollbar {
   width: 9px !important;
@@ -70,33 +103,8 @@ select {
 .spinner {
   width: 40px;
   height: 40px;
-
   position: relative;
   margin: 100px auto;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 2em;
-  background-color: rgb(27, 28, 29);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.footerLeft {
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: left;
-  color: white;
-  height: 100%;
-  width: 50%;
-  padding-left: 1em;
-  padding-top: 0.19em;
-  user-select: none;
 }
 
 @keyframes zoomIn {
@@ -136,18 +144,30 @@ select {
 .todoContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-content: flex-start;
   align-items: center;
   height: 100%;
+  width: 100%;
+  padding: 5% 10% 0%;
 }
 
 .todoItem {
   display: flex;
-  width: 97%;
+  width: 100%;
   margin: 1%;
-  border: solid 2px #777;
+  box-shadow: -10px 10px 12px rgba(27, 28, 31, 0.3);
+  border-radius: 1px 100px 1px 100px;
+  background: linear-gradient(
+    to left,
+    rgba(37, 36, 57, 0.3) 17%,
+    rgba(44, 83, 100, 0.3) 100%
+  );
+}
+
+.todoItem:hover {
+  border-radius: 1px 100px 1px 100px;
 }
 
 .todoStringContainer {
@@ -157,45 +177,95 @@ select {
   align-content: center;
   align-items: center;
   flex: 1;
-  background: rgb(48, 51, 58);
 }
 
 .todoTitle {
   font-size: 20px;
   min-height: 40%;
-  border-bottom: dotted 1px #ccc;
+
+  font-weight: 100;
 }
 
 .todoDescription {
   padding: 20px;
   min-height: 60%;
+  font-weight: 200;
 }
 
-.todoOptionContainer {
-  min-width: 5%;
+.reactWindowTitleBar {
+  background-color: #252439 !important;
 }
 
-.todoEdit {
-  display: block;
-  padding: 20%;
-  height: 50%;
-  border-left: solid 2px #777;
+.appWrapper {
+  padding-top: 31px;
+  padding-left: 210px;
+  height: 100vh;
+  width: 100%;
+}
+
+.centerWrapper {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  width: 100%;
   text-align: center;
-  text-decoration: underline;
+  justify-content: center;
 }
 
-.todoDelete {
-  display: block;
-  padding: 20%;
-  height: 50%;
-  border: solid 2px #777;
-  border-bottom: none;
-  border-right: none;
-  text-align: center;
-  text-decoration: underline;
+.item {
+  font-family: 'Segoe UI';
+  font-weight: 100;
 }
 
-.todoOption:hover {
+.item .active,
+.header {
+  font-weight: 300 !important;
+}
+
+.left-menu {
+  margin-top: 1.9em !important;
+
+  overflow-y: auto !important;
+  background: #252439 !important;
+}
+
+.todoInput {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  box-shadow: -10px 10px 12px rgba(27, 28, 31, 0.3);
+  border-radius: 10px 20px;
+  background: linear-gradient(
+    to left,
+    rgba(37, 36, 57, 0.3) 17%,
+    rgba(44, 83, 100, 0.3) 100%
+  );
+}
+
+.todoAddButton {
+  border-radius: 10px 20px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #2c5364;
+  border: solid 1px #3f83a0;
+  transition: all 0.2s;
+}
+
+.todoAddButton:hover {
+  border-radius: 20px 10px;
+  background: #488aa7;
   color: white;
   cursor: pointer;
+}
+
+.todoAddButton:active {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 6px rgba(27, 28, 31, 0.3);
 }

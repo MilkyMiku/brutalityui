@@ -5,26 +5,23 @@ const remote = window.require('electron').remote; // get remote object from elec
 
 class Header extends Component {
   render() {
-    const titlebarStyle = {
-      backgroundColor: 'rgb(27, 28, 29)'
-    };
-
     const sideButtons = [
       // Version Number
-      <p style={{ color: 'white', WebkitAppRegion: 'drag' }}>
-        Version MOO {React.version}
+      <p
+        style={{
+          color: 'white',
+          WebkitAppRegion: 'drag'
+        }}
+      >
+        Brutality UI
       </p>
     ];
 
     return (
-      <TitleBar
-        title="Title Here"
-        remote={remote}
-        theme="dark"
-        actionsPos="right"
-        buttons={sideButtons}
-        style={titlebarStyle}
-      />
+      // title="title"
+      // TODO: Add title
+
+      <TitleBar remote={remote} actionsPos="right" buttons={sideButtons} />
     );
   }
 }

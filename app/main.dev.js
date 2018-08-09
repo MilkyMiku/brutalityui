@@ -71,7 +71,7 @@ app.on('ready', async () => {
     frame: false,
     width: 1200,
     height: 800,
-    backgroundColor: '#34373a'
+    backgroundColor: '#252439'
   });
   mainWindow.focus();
   mainWindow.loadURL(`file://${__dirname}/app.html`);
